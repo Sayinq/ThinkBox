@@ -18,6 +18,31 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@font-face {
+  font-family: 'MontrealBold';
+  src: url('path/to/PPNeueMontreal-Bold.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontrealBook';
+  src: url('path/to/PPNeueMontreal-Book.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'MontrealBold', sans-serif;
+}
+
+p,
+span {
+  font-family: 'MontrealBook', sans-serif;
+}
+
 .parallax {
   overflow: hidden;
   letter-spacing: -2px;
