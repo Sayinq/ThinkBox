@@ -3,31 +3,14 @@ import testLogo from '../assets/think_box_logo.png';
 import arrowRight from '../assets/arrow-90-right.svg';
 import BlogSection from '../components/BlogSection';
 import ScrollingText from '../components/ScrollingText';
+import { DistortionHero } from '../components/DistortionHero';
 
 const Home = () => {
     return (
         <main className="flex flex-col xl:flex-row overflow-x-hidden">
 
             {/* Hero Section */}
-            <section id="hero" className="relative xl:w-[50%] w-screen xl:h-[300vh] h-[500px] bg-[#D2D2D2]">
-                <div id="hero-sticky" className="xl:fixed flex flex-col gap-y-4 p-4 xl:w-[50%] xl:h-screen h-full w-screen">
-                    <div id="hero-logo" className="scale-50 -translate-x-[100px]">
-                    <img src={testLogo} alt="Logo" />
-                    </div>
-                    <h1 className="text-4xl font-bold mb-8">Myles McGhee</h1>
-                    <div className="flex flex-col text-2xl font-semibold">
-                    <h2 className="mb-2">Conference 20'</h2>
-                    <div className="flex flex-row items-center">
-                        <img src={arrowRight} className="w-4 h-4" alt="Arrow" />
-                        <h2 className="pl-4">Conference '22</h2>
-                    </div>
-                    <div className="flex flex-row items-center">
-                        <img src={arrowRight} className="w-4 h-4" alt="Arrow" />
-                        <h2 className="pl-4">Conference '23</h2>
-                    </div>
-                    </div>
-                </div>
-            </section>
+            <DistortionHero />
 
 
 
