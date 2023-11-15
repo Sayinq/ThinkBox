@@ -1,6 +1,5 @@
 import React from 'react'
 import testLogo from '../assets/think_box_logo.png';
-import arrowRight from '../assets/arrow-90-right.svg';
 import BlogSection from '../components/BlogSection';
 import ScrollingText from '../components/ScrollingText';
 import { DistortionHero } from '../components/DistortionHero';
@@ -15,23 +14,10 @@ const Home = () => {
 
 
             {/* Hero About */}
-            <div id="right-wrapper" className="xl:w-[50%]">
-                <section className="flex flex-row w-screen h-[200px] px-4 pt-4 text-base font-bold bg-white">
-                    <div className="flex flex-col w-1/2">
-                        <h2>Myles Was Bored</h2>
-                        <h2 className="pl-4">Foundation</h2>
-                    </div>
-                    <div className="flex flex-col w-1/2">
-                        <h2>New Berlin</h2>
-                        <div className="flex flex-row items-center pl-2">
-                            <img src={arrowRight} className="w-4 h-4" />
-                            <h2 className="pl-4">Conference '22</h2>
-                        </div>
-                    </div>
-                </section>
-                <section id="scrolling-text" className="min-w-[110%] h-auto mb-8">
-                    <ScrollingText baseVelocity={-5}>CASE STUDY</ScrollingText>
-                    <ScrollingText baseVelocity={5}>MYLES MCGHEE</ScrollingText>
+            <div id="right-wrapper" className="xl:w-[50%] h-min">
+                <section id="scrolling-text" className="w-full h-auto my-8">
+                    <ScrollingText baseVelocity={-5}> CASECASECASECASE  </ScrollingText>
+                    <ScrollingText baseVelocity={5}> STUDYSTUDYSTUDYSTUDY </ScrollingText>
                 </section>
                 {/* Blog Read component */}
                 <BlogSection />

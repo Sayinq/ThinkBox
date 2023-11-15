@@ -1,12 +1,13 @@
 import React from 'react';
 import Home from './page/Home';
+import {NextUIProvider} from "@nextui-org/react";
 
 function App() {
 
   return (
-      <>
+      <NextUIProvider>
         <Home />
-      </>
+      </NextUIProvider>
   )
 }
 
