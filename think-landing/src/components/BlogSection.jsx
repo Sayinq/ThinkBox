@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import blenderScene from '../assets/cubic_grassy_scene.png';
 
@@ -32,11 +34,38 @@ const blogData = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 const BlogSection = () => {
+  useEffect(() => {
+    const setupAnimation = () => {
+      blogData.forEach((blogItem, index) => {
+        const blogSection = document.getElementById(`blog-${index}`);
+
+        gsap.fromTo(
+          blogSection,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: blogSection,
+              start: 'top center+=200',
+              end: 'center center',
+            },
+          }
+        );
+      });
+    };
+
+    setupAnimation();
+  }, []);
+
   return (
     <div>
       {blogData.map((blogItem, index) => (
-        <section key={index} id="blog" className="w-full h-auto bg-white">
+        <section key={index} id={`blog-${index}`} className="w-full h-auto bg-white">
           <div className="flex justify-center items-center w-full h-fit">
             <div id="page-divider" className="flex items-center justify-center xl:w-[97%] w-[90%] h-[1px] bg-zinc-500 px-8" />
           </div>
