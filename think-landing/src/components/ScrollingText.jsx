@@ -6,10 +6,13 @@ import {
   useTransform,
   useMotionValue,
   useVelocity,
-  useAnimationFrame
+  useAnimationFrame,
+  AnimatePresence
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import '../index.css';
+import '../assets/config/motion.js';
+import { fadeAnimation } from '../assets/config/motion.js';
 
 const ScrollingText = ({ children, baseVelocity }) => {
   const baseX = useMotionValue(0);
@@ -42,12 +45,14 @@ const ScrollingText = ({ children, baseVelocity }) => {
 
   return (
     <div className="parallax">
-      <motion.div className="scroller" style={{ x }}>
+      <AnimatePresence>
+      <motion.div className="scroller" style={{ x }} {...fadeAnimation}>
         <span>{children} </span>
         <span>{children} </span>
         <span>{children} </span>
         <span>{children} </span>
       </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

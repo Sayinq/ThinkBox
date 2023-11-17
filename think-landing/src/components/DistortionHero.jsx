@@ -5,6 +5,9 @@ import { Environment, useGLTF } from "@react-three/drei"
 import { EffectComposer, N8AO, SSAO } from "@react-three/postprocessing"
 import { BallCollider, Physics, RigidBody, CylinderCollider } from "@react-three/rapier"
 import { Tooltip } from "@nextui-org/react"
+import '../assets/config/motion.js';
+import { headContentAnimation, invheadContentAnimation } from '../assets/config/motion.js';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import myHDR from "../assets/adamsbridge.hdr";
 import capObject from '../assets/cap.glb';
@@ -58,13 +61,14 @@ export const DistortionHero = () => (
   <section
     id="hero"
     className="relative xl:w-[50%] w-screen xl:h-[200vh] h-[500px]">
+      <AnimatePresence>
       <div
       id="hero-sticky"
       className="xl:fixed flex flex-col gap-y-4 p-4 xl:w-[50%] xl:h-screen h-full w-screen">
 
-      <div className="flex w-full h-auto justify-center items-center">
+      <motion.div className="flex w-full h-auto justify-center items-center" {...invheadContentAnimation}>
         <img src={thinkLogo} />
-      </div>
+      </motion.div>
         <Canvas
           shadows
           gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
@@ -76,7 +80,7 @@ export const DistortionHero = () => (
           <directionalLight position={[0, -15, -0]} intensity={4} color="#f0f08d" />
           <Physics gravity={[0, 0, 0]}>
             <Pointer />
-            {baubles.map((props, i) => <Bauble key={i} {...props} />) /* prettier-ignore */}
+            {baubles.map((props, i) => <Bauble key={i} {...props} />)}
           </Physics>
           <Environment files={myHDR} />
           <EffectComposer disableNormalPass multisampling={0}>
@@ -84,23 +88,24 @@ export const DistortionHero = () => (
             <SSAO />
           </EffectComposer>
         </Canvas>
-        <div className="flex flex-row justify-center items-center md:gap-x-12 gap-x-4 absolute w-full h-24 bottom-0 left-0 z-50">
-          <Tooltip content="Webflow" color="primary" >
+        <motion.div className="flex flex-row justify-center items-center md:gap-x-12 gap-x-8 absolute w-full h-24 bottom-0 left-0 z-50" {...headContentAnimation}>
+          <Tooltip content="Webflow" color="warning" >
             <a href="https://www.webflow.com">
-              <img src={webflowLogo} className="md:w-14 md:h-14 w-8 h-8" />
+              <img src={webflowLogo} className="md:w-14 md:h-14 w-10 h-10" />
             </a>
           </Tooltip>
-          <Tooltip content="Github" color="primary" >
+          <Tooltip content="Github" color="warning" >
             <a href="https://www.github.com">
-              <img src={githubLogo} className="md:w-14 md:h-14 w-8 h-8" />
+              <img src={githubLogo} className="md:w-14 md:h-14 w-10 h-10" />
             </a>
           </Tooltip>
-          <Tooltip content="Behance" color="primary" >
+          <Tooltip content="Behance" color="warning" >
             <a href="https://www.behance.com">
-              <img src={behanceLogo} className="md:w-14 md:h-14 w-8 h-8" />
+              <img src={behanceLogo} className="md:w-14 md:h-14 w-10 h-10" />
             </a>
           </Tooltip>
-        </div>
+        </motion.div>
       </div>
+      </AnimatePresence>
     </section>
 )

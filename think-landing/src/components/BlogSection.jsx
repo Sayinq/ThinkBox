@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import blenderScene from '../assets/cubic_grassy_scene.png';
 
 const blogData = [
@@ -55,13 +56,13 @@ const BlogSection = () => {
 
             <div id="text-content" className="flex flex-col gap-y-8 text-[#595959]">
               <p id="content-location">{blogItem.contentLocation}</p>
-              <p id="content-description" className="text-sm">
+              <p id="content-description" className="md:text-base text-sm">
                 {blogItem.contentDescription}
               </p>
             </div>
 
             <div id="image-content" className="flex flex-col gap-y-8">
-              <p className="text-sm text-[#595959]">Images</p>
+              <a href="www.google.com"><p className="text-sm font-bold border-b-4 border-black hover:border-[#595959] hover:text-[#595959] w-fit">Read more</p></a>
               <img src={blogItem.imageUrl} alt="Blog Image" />
             </div>
           </div>
